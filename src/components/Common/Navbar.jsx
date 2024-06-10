@@ -22,7 +22,7 @@ const Navbar = () => {
         <Link to="/settings">Settings</Link>
       </Menu.Item>
       <Menu.Item danger>
-        <Link to="/logout">Logout</Link>
+        <Link to="/login">Logout</Link>
       </Menu.Item>
     </Menu>
   );
@@ -43,7 +43,7 @@ const Navbar = () => {
             <BellOutlined className="text-white text-xl" />
           </Badge>
           <Dropdown overlay={userMenu} placement="bottomRight">
-            <Avatar size="large" icon={<UserOutlined />} className="cursor-pointer" />
+            <Avatar size="large" icon={<UserOutlined />} className="cursor-pointer w-24 " />
           </Dropdown>
         </div>
         <div className="md:hidden flex items-center">
@@ -94,7 +94,7 @@ const Navbar = () => {
             Settings
           </Link>
           <Link
-            to="/logout"
+            to="/login"
             className="text-white text-xl hover:text-sky-300"
             onClick={toggleMenu}
           >

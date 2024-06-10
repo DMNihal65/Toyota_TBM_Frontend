@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { Input, Button, Form, Alert } from 'antd';
+import { motion } from 'framer-motion';
+import 'tailwindcss/tailwind.css';
 
 const Login = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
-    e.preventDefault();
+  const handleLogin = (values) => {
+    const { username, password } = values;
     if (username === 'admin' && password === 'admin') {
       dispatch({
         type: 'LOGIN_SUCCESS',
@@ -22,30 +24,51 @@ const Login = () => {
       });
       navigate('/dashboard/overview');
     } else {
-      alert('Invalid credentials');
+      setError('Invalid credentials');
     }
   };
 
   return (
-    <form onSubmit={handleLogin}>
-      <div>
-        <label>Username:</label>
-        <input
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-      </div>
-      <div>
-        <label>Password:</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </div>
-      <button type="submit">Login</button>
-    </form>
+    <div className="flex items-center justify-center h-screen bg-gray-100">
+      <motion.div
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="bg-white p-8 rounded shadow-md w-full max-w-md"
+      >
+        <h1 className="text-2xl font-bold mb-6 text-center">Login</h1>
+        {error && <Alert message={error} type="error" showIcon className="mb-4" />}
+        <Form onFinish={handleLogin}>
+          <Form.Item
+            name="username"
+            rules={[{ required: true, message: 'Please input your username!' }]}
+          >
+            <Input
+              placeholder="Username"
+              className="border rounded w-full py-2 px-3"
+            />
+          </Form.Item>
+          <Form.Item
+            name="password"
+            rules={[{ required: true, message: 'Please input your password!' }]}
+          >
+            <Input.Password
+              placeholder="Password"
+              className="border rounded w-full py-2 px-3"
+            />
+          </Form.Item>
+          <Form.Item>
+            <Button
+              type="primary"
+              htmlType="submit"
+              className="w-full bg-blue-500 hover:bg-blue-600"
+            >
+              Login
+            </Button>
+          </Form.Item>
+        </Form>
+      </motion.div>
+    </div>
   );
 };
 
