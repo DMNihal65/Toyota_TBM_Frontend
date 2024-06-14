@@ -1,27 +1,34 @@
-// pages/JobCards.jsx
+// components/JobCards/CardComponent.jsx
 import React from 'react';
 import { Card } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
 const { Meta } = Card;
 
-const CardComponent = ({ title, description, image, link }) => {
+const CardComponent = ({ cardId, machineName, details, state, color, totalInspections, link }) => {
   const navigate = useNavigate();
 
   const handleCardClick = () => {
-    // Extract the lineId from the link
-    const lineId = link.split('/').pop();
-    navigate(`/inspections/overview/${lineId}`);
+    navigate(`/inspections/overview/${cardId}`);
   };
 
   return (
     <Card
       hoverable
       onClick={handleCardClick}
-      cover={<img alt={title} src={image} />}
+      style={{ borderColor: color }}
       className="m-4 shadow-lg transition-transform transform hover:scale-105"
     >
-      <Meta title={title} description={description} />
+      <Meta
+        title={machineName}
+        description={
+          <div>
+            <p>{details}</p>
+            <p>{state}</p>
+            <p>Total Inspections: {totalInspections}</p>
+          </div>
+        }
+      />
     </Card>
   );
 };

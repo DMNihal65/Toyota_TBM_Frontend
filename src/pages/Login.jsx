@@ -12,7 +12,7 @@ const Login = () => {
 
   const handleLogin = (values) => {
     const { username, password } = values;
-    if (username === 'admin' && password === 'admin') {
+    if (username === 'cmti@gmail.com' && password === 'password') {
       dispatch({
         type: 'LOGIN_SUCCESS',
         payload: {

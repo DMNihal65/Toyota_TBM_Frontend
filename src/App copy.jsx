@@ -1,3 +1,4 @@
+// app.jsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AuthMiddleware from './utils/AuthMiddleware';
@@ -25,7 +26,7 @@ function App() {
         </Route>
 
         <Route path="/inspections" element={<AuthMiddleware element={JobCards} roles={['admin']} />}>
-          <Route path="overview/:cardId" element={<InspectionDetails />} /> {/* Updated route for Inspection Details */}
+          <Route path="overview/:lineId" element={<InspectionDetails />} /> {/* New route for Inspection Details */}
         </Route>
 
         <Route path="/" element={<Login />} />

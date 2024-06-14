@@ -1,37 +1,58 @@
+// components/JobCards/CardOverview.jsx
 import React from 'react';
-import CardComponent from './CardComponent';
+import ProductionLines from './ProductionLines';
 
-const productionLines = [
-  {
-    title: 'Line 1',
-    description: 'Description for Line 1',
-    image: 'https://via.placeholder.com/150',
-    link: '/dashboard/inspection/line1'
+// Sample data structure
+const productionData = {
+  Head: {
+    cards: {
+      1: { machinename: "TB140", details: "sample details", state: "OK", Color: "Green", total_inspections: 4 },
+      2: { machinename: "TB130", details: "sample details 2", state: "NG", Color: "Yellow", total_inspections: 2 },
+      3: { machinename: "TB140", details: "sample details", state: "OK", Color: "Green", total_inspections: 4 },
+      4: { machinename: "TB130", details: "sample details 2", state: "NG", Color: "Yellow", total_inspections: 2 },
+      5: { machinename: "TB140", details: "sample details", state: "OK", Color: "Green", total_inspections: 4 },
+      6: { machinename: "TB130", details: "sample details 2", state: "NG", Color: "Yellow", total_inspections: 2 },
+      7: { machinename: "TB140", details: "sample details", state: "OK", Color: "Green", total_inspections: 4 },
+      8: { machinename: "TB130", details: "sample details 2", state: "NG", Color: "Yellow", total_inspections: 2 },
+      9: { machinename: "TB140", details: "sample details", state: "OK", Color: "Green", total_inspections: 4 },
+      10: { machinename: "TB130", details: "sample details 2", state: "NG", Color: "Yellow", total_inspections: 2 },
+      11: { machinename: "TB140", details: "sample details", state: "OK", Color: "Green", total_inspections: 4 },
+      12: { machinename: "TB130", details: "sample details 2", state: "NG", Color: "Yellow", total_inspections: 2 },
+      13: { machinename: "TB140", details: "sample details", state: "OK", Color: "Green", total_inspections: 4 },
+      14: { machinename: "TB130", details: "sample details 2", state: "NG", Color: "Yellow", total_inspections: 2 },
+    },
   },
-  {
-    title: 'Line 2',
-    description: 'Description for Line 2',
-    image: 'https://via.placeholder.com/150',
-    link: '/dashboard/inspection/line2'
+  Crank: {
+    cards: {
+      1: { machinename: "TB140", details: "sample details", state: "OK", Color: "Green", total_inspections: 4 },
+      2: { machinename: "TB130", details: "sample details 2", state: "NG", Color: "Yellow", total_inspections: 2 },
+      3: { machinename: "TB140", details: "sample details", state: "OK", Color: "Green", total_inspections: 4 },
+      4: { machinename: "TB130", details: "sample details 2", state: "NG", Color: "Yellow", total_inspections: 2 },
+      5: { machinename: "TB140", details: "sample details", state: "OK", Color: "Green", total_inspections: 4 },
+      6: { machinename: "TB130", details: "sample details 2", state: "NG", Color: "Yellow", total_inspections: 2 },
+      7: { machinename: "TB140", details: "sample details", state: "OK", Color: "Green", total_inspections: 4 },
+      8: { machinename: "TB130", details: "sample details 2", state: "NG", Color: "Yellow", total_inspections: 2 },
+      9: { machinename: "TB140", details: "sample details", state: "OK", Color: "Green", total_inspections: 4 },
+      10: { machinename: "TB130", details: "sample details 2", state: "NG", Color: "Yellow", total_inspections: 2 },
+    },
   },
-  // Add more lines as needed
-];
+  Block: {
+    cards: {
+      1: { machinename: "TB140", details: "sample details", state: "OK", Color: "Green", total_inspections: 4 },
+      2: { machinename: "TB130", details: "sample details 2", state: "NG", Color: "Yellow", total_inspections: 2 },
+      3: { machinename: "TB140", details: "sample details", state: "OK", Color: "Green", total_inspections: 4 },
+      4: { machinename: "TB130", details: "sample details 2", state: "NG", Color: "Yellow", total_inspections: 2 },
+      5: { machinename: "TB140", details: "sample details", state: "OK", Color: "Green", total_inspections: 4 },
+    
+    },
+  },
+};
 
 const CardOverview = () => {
   return (
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4">Production Lines Overview</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {productionLines.map((line, index) => (
-          <CardComponent
-            key={index}
-            title={line.title}
-            description={line.description}
-            image={line.image}
-            link={line.link}
-          />
-        ))}
-      </div>
+      <ProductionLines productionData={productionData} />
     </div>
   );
 };
