@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
-const DateFilter = ({ onDateChange }) => {
+const DateFilter = () => {
+  const [startDate, setStartDate] = useState(null);
+
+  const handleDateChange = (date) => {
+    setStartDate(date);
+    // Handle date change logic here (e.g., filter data based on selected date)
+  };
+
   return (
-    <div className="date-filter">
-      <label>Date Filter</label>
-      <input type="date" onChange={(e) => onDateChange(e.target.value)} />
-    </div>
+    <DatePicker
+      selected={startDate}
+      onChange={handleDateChange}
+      placeholderText="Select date"
+      className="p-2 border rounded"
+    />
   );
 };
 

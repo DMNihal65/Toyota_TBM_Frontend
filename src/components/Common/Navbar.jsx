@@ -35,6 +35,7 @@ const Navbar = () => {
         </div>
         <div className="hidden md:flex items-center space-x-4">
           <Link to="/dashboard/overview" className="text-white hover:text-sky-300">Dashboard</Link>
+          <Link to="/newcards/newoverview" className="text-white hover:text-sky-300">NewCards</Link>
           <Link to="/cards/overview" className="text-white hover:text-sky-300">Cards</Link>
           <Link to="/profile" className="text-white hover:text-sky-300">Profile</Link>
           <Link to="/settings" className="text-white hover:text-sky-300">Settings</Link>
@@ -72,6 +73,13 @@ const Navbar = () => {
           >
             Dashboard
           </Link>
+            <Link
+            to="/newcards/newoverview"
+            className="text-white text-xl hover:text-sky-300"
+            onClick={toggleMenu}
+          >
+            NewCards
+          </Link>
           <Link
             to="/cards/overview"
             className="text-white text-xl hover:text-sky-300"
@@ -79,6 +87,7 @@ const Navbar = () => {
           >
             Cards
           </Link>
+       
           <Link
             to="/profile"
             className="text-white text-xl hover:text-sky-300"

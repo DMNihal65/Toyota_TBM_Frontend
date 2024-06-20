@@ -1,39 +1,38 @@
 import React from 'react';
-import CardComponent from './CardComponent';
+import ProductionLines from './ProductionLineCards';
 
-const productionLines = [
+const productionLinesData = [
   {
-    title: 'Line 1',
-    description: 'Description for Line 1',
-    image: 'https://via.placeholder.com/150',
-    link: '/dashboard/inspection/line1'
+    line: 'Head',
+    cards: [
+      { title: 'OP130', description: 'Card Description', image: 'https://img.icons8.com/sf-black/64/network-cable.png', id: 'cardhead1', status: 'ng', okCount: 2, ngCount: 0 },
+      { title: 'OP130', description: 'Card Description', image: 'https://img.icons8.com/sf-black/64/network-cable.png', id: 'cardhead2', status: 'default', okCount: 2, ngCount: 0 },
+      { title: 'OP130', description: 'Card Description', image: 'https://img.icons8.com/sf-black/64/network-cable.png', id: 'cardhead3', status: 'ok', okCount: 2, ngCount: 1 },
+      { title: 'OP130', description: 'Card Description', image: 'https://img.icons8.com/sf-black/64/network-cable.png', id: 'cardhead4', status: 'ng', okCount: 1, ngCount: 0 },
+      { title: 'OP130', description: 'Card Description', image: 'https://img.icons8.com/sf-black/64/network-cable.png', id: 'cardhead5', status: 'default', okCount: 1, ngCount: 0 },
+      { title: 'OP130', description: 'Card Description', image: 'https://img.icons8.com/sf-black/64/network-cable.png', id: 'cardhead6', status: 'ok', okCount: 1, ngCount: 1 },
+    ]
   },
   {
-    title: 'Line 2',
-    description: 'Description for Line 2',
-    image: 'https://via.placeholder.com/150',
-    link: '/dashboard/inspection/line2'
+    line: 'Crank',
+    cards: [
+      { title: 'OP130', description: 'Card Description', image: 'https://img.icons8.com/sf-black/64/network-cable.png', id: 'cardcrank1', status: 'default', okCount: 2, ngCount: 0 },
+      { title: 'OP130', description: 'Card Description', image: 'https://img.icons8.com/sf-black/64/network-cable.png', id: 'cardcrank2', status: 'ng', okCount: 2, ngCount: 0 },
+      { title: 'OP130', description: 'Card Description', image: 'https://img.icons8.com/sf-black/64/network-cable.png', id: 'cardcrank3', status: 'ok', okCount: 2, ngCount: 1 },
+      { title: 'OP130', description: 'Card Description', image: 'https://img.icons8.com/sf-black/64/network-cable.png', id: 'cardcrank4', status: 'default', okCount: 1, ngCount: 0 },
+      { title: 'OP130', description: 'Card Description', image: 'https://img.icons8.com/sf-black/64/network-cable.png', id: 'cardcrank5', status: 'ng', okCount: 1, ngCount: 0 },
+      { title: 'OP130', description: 'Card Description', image: 'https://img.icons8.com/sf-black/64/network-cable.png', id: 'cardcrank6', status: 'ok', okCount: 1, ngCount: 1 },
+    ]
   },
-  // Add more lines as needed
 ];
 
-const CardOverview = () => {
+const CardInspection = () => {
   return (
     <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Production Lines Overview</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {productionLines.map((line, index) => (
-          <CardComponent
-            key={index}
-            title={line.title}
-            description={line.description}
-            image={line.image}
-            link={line.link}
-          />
-        ))}
-      </div>
+      <h1 className="text-2xl font-bold mb-4">CardOverview</h1>
+      <ProductionLines lines={productionLinesData} />
     </div>
   );
 };
 
-export default CardOverview;
+export default CardInspection;

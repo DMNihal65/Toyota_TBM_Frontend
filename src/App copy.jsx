@@ -11,7 +11,7 @@ import NewPendingJobs from './components/NewJobCards/NewPendingJobs';
 import JobCards from './pages/JobCards';
 import NewJobCards from './pages/NewJobCards';
 import CardOverview from './components/JobCards/CardInspection';
-import InspectionDetails from './components/Inspections/InspectionDetails'; 
+import InspectionDetails from './components/Inspections/InspectionDetails'; // Import the new component
 
 function App() {
   return (
@@ -30,9 +30,10 @@ function App() {
 
         <Route path="/cards" element={<AuthMiddleware element={JobCards} roles={['admin']} />}>
           <Route path="overview" element={<CardOverview />} />
-          <Route path="overview/:lineId" element={<InspectionDetails />} /> {/* New route for Inspection Details */}
           <Route path="createCard" element={<PendingJobs />} />
         </Route>
+
+   
 
         <Route path="/inspections" element={<AuthMiddleware element={JobCards} roles={['admin']} />}>
           <Route path="overview/:lineId" element={<InspectionDetails />} /> {/* New route for Inspection Details */}

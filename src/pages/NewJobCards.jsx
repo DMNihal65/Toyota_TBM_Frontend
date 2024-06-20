@@ -7,13 +7,13 @@ import Tabs from '../components/Common/Tabs';
 
 const JobCards = () => {
   const tabs = [
-    { name: 'CardOverview', route: 'overview' },
-    { name: 'Pending Jobs', route: 'createCard' },
+    { name: 'New CardOverview', route: 'newoverview' },
+    { name: 'New Pending Jobs', route: 'new-pending-jobs' },
   ];
 
   const crumbs = [
     { name: 'Home', path: '/' },
-    { name: 'Cards', path: '/cards/overview' },
+    { name: 'Cards', path: '/newcards/newoverview' },
   ];
 
   return (
